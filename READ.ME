@@ -1,0 +1,36 @@
+# How to start
+
+The project has different parts divided in jobs, services, models and controllers.
+
+The idea of the project is that the request can be handle without the server breaks while managing dealing with several requests at the same time:
+
+Using redis and Workers to be able to do it.
+
+The database is MongoDb which should be installed but not running, so the command can make it happen.
+
+## Installation
+
+Use the package manager [yarn](https://yarnpkg.com/) to install all of the packages and start.
+
+```bash
+yarn install
+```
+
+## Usage
+
+to upload a excel file:
+```bash
+curl -X POST "http://localhost:3000/api/stream" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@/Users/your/path/to/the/file/excelFile.xlsx"
+```
+It should return a TaskId
+
+To get a Task
+```bash
+curl -X GET "http://localhost:3000/api/task/:taskId" 
+```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
